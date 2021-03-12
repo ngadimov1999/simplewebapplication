@@ -11,16 +11,18 @@ public class EmailController {
     @Autowired
     public JavaMailSender emailSender;
 
-    public void sendSimpleEmail() {
+    public void sendSimpleEmail(String email, String message, String theme) {
 
         // Create a Simple MailMessage.
-        SimpleMailMessage message = new SimpleMailMessage();
+//        SimpleMailMessage message = new SimpleMailMessage();
+//
+//        message.setTo("gadimovnabi@gmail.com");
+//        message.setSubject("Test Simple Email");
+//        message.setText("Hello, Im testing Simple Email");
 
-        message.setTo("gadimovnabi@gmail.com");
-        message.setSubject("Test Simple Email");
-        message.setText("Hello, Im testing Simple Email");
+        System.out.println("TO: " + email + "\nTHEME: " + theme + "\nMESSAGE: " + message);
 
         // Send Message!
-        this.emailSender.send(message);
+//        this.emailSender.send(message);
     }
 }

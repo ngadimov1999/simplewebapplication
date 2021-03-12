@@ -1,5 +1,6 @@
 package com.webshop.simplewebapplication.controller;
 
+import com.webshop.simplewebapplication.Scheduler.SendMailScheduler;
 import com.webshop.simplewebapplication.Service.DeviceService;
 import com.webshop.simplewebapplication.Service.GarantyService;
 import com.webshop.simplewebapplication.model.Device;

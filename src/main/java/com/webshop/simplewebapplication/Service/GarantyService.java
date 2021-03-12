@@ -12,7 +12,7 @@ import java.util.List;
 public class GarantyService {
 
     @Autowired
-    GarantyDAOHib garantyDao;
+    GarantyDAOHib garantyDao = new GarantyDAOHib();
 
     public List<Garanty> getOverdue() {
         return garantyDao.getOverdue();

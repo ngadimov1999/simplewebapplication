@@ -16,17 +16,19 @@ import org.springframework.stereotype.Component;
 public class SendMailScheduler {
 
     @Autowired
-    GarantyService garantyService;
+    GarantyService garantyService = new GarantyService();
 
     @Autowired
-    EmailController emailController;
+    EmailController emailController = new EmailController();
 
-    @Scheduled(initialDelay = 2 * 1000, fixedDelay = 60 * 60 * 1000)
+    @Scheduled(initialDelay = 30 * 1000, fixedDelay = 60 * 60 * 1000)
     public void writeMails() {
         GarantyService garantyService = new GarantyService();
         List<Garanty> overdue = garantyService.getOverdue();
         for (Garanty overdueGar : overdue){
-            emailController.sendSimpleEmail();
+            emailController.sendSimpleEmail("gadimovnabi@gmail.com",
+                                          "Здравствуйте! Спешим напомнить, что ваша гарантия на устройство '" + overdueGar.getDevice().getModel() + "' истекает через месяц, не забудьте оформить новую!",
+                                            "Истекает срок гарантии");
         }
     }
 
